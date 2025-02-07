@@ -1,0 +1,82 @@
+<!-- **** Header Section **** -->
+<div class="header">
+  <nav>
+      <a routerLink="/">
+        <img src="images/logo.png" class="logo" alt="Netflix Logo">        </a>
+      <div>
+          <select class="language-btn">
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+          </select>
+          <a routerLink="/login">
+              <button>Sign In</button>
+          </a>
+      </div>
+  </nav>
+
+  <div class="header-content">
+      <h1>Unlimited movies, TV shows and more.</h1>
+      <h3>Watch anywhere. Cancel anytime.</h3>
+      <p>Ready to watch? Enter your email to create or restart your membership.</p>
+      <!-- Removed email form here -->
+  </div>
+</div>
+
+<!-- Features Section -->
+<section class="features">
+<div class="row" *ngFor="let feature of features">
+  <div class="text-col">
+    <h2>{{ feature.title }}</h2>
+    <p>{{ feature.description }}</p>
+  </div>
+  <div class="img-col">
+    <ng-container *ngIf="feature.isVideo; else imageBlock">
+      <video autoplay loop muted>
+        <source [src]="feature.mediaSrc" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </ng-container>
+    <ng-template #imageBlock>
+      <img [src]="feature.mediaSrc" alt="{{ feature.title }}">
+    </ng-template>
+  </div>
+</div>
+</section>
+
+
+<!-- FAQ Section -->
+<div class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <ul class="accordion">
+      <li *ngFor="let faq of faqs">
+          <input type="radio" name="accordion" [id]="faq.id">
+          <label [for]="faq.id">{{ faq.question }}</label>
+          <div class="content">
+              <p>{{ faq.answer }}</p>
+          </div>
+      </li>
+  </ul>
+  <small>Ready to watch? Enter your email to create or restart your membership.</small>
+  <!-- Removed email form here as well -->
+</div>
+
+<!-- Footer Section -->
+<div class="footer">
+  <h2>Questions? Call 000-800-919-1694</h2>
+  <div class="row">
+      <div class="col" *ngFor="let col of footerLinks">
+          <a *ngFor="let link of col" href="#">{{ link }}</a>
+      </div>
+  </div>
+
+  <select class="language-btn">
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+  </select>
+
+  <p class="copyright-text">Netflix India</p>
+  <div class="developer">
+      <p>Developed with 💖 by Keerti</p>
+      <small>&copy; 2023 | Designed & Developed by Keerti Vishwkarma | All Rights Reserved.</small>
+  </div>
+</div>
