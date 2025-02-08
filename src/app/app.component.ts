@@ -44,7 +44,7 @@ export class AppComponent implements AfterViewInit {
     {
       title: 'Watch everywhere',
       description: 'Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.',
-      mediaSrc: '/images/feature-3.png',  // Changed from MP4 to image
+      mediaSrc: '/images/feature-3.png',
       isVideo: false
     },
     {
