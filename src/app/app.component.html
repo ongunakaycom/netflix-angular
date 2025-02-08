@@ -28,14 +28,12 @@
 <!-- Trending Now Section with Slick Carousel -->
 <section class="trending-now">
   <h2>Trending Now</h2>
-  <div class="trending-carousel">
-    <div *ngFor="let item of trendingNow | slice:0:5">
-      <div class="carousel-item">
-        <img [src]="item.image" alt="{{ item.name }}" />
-        <h3>{{ item.name }}</h3>
-      </div>
-    </div>
+<!-- Carousel with images only -->
+<div class="trending-carousel">
+  <div *ngFor="let show of trendingNow" class="slick-item">
+    <img [src]="show.image" [alt]="show.name" />
   </div>
+</div>
 </section>
 
 <!-- Features Section -->

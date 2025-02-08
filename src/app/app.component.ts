@@ -1,6 +1,9 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import $ from 'jquery';
+
+// Import jQuery and Slick
+import $ from 'jquery';  // Use default import
+import 'slick-carousel';
 
 // Declare slick method globally for jQuery
 declare global {
@@ -80,36 +83,45 @@ export class AppComponent implements AfterViewInit {
 
   // Slick Carousel initialization after view is initialized
   ngAfterViewInit() {
-    // Initialize Slick Carousel for Trending Now
-    $('.trending-carousel').slick({
-      slidesToShow: 5,
-      slidesToScroll: 1,
-      infinite: true,
-      arrows: true,
-      dots: true,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1
+    setTimeout(() => {
+      if (typeof ($ as any).fn.slick === 'undefined') {
+        console.error('Slick is not loaded properly.');
+        return;
+      }
+  
+      $('.trending-carousel').slick({
+        slidesToShow: 5,          // Show 5 slides at once
+        slidesToScroll: 1,        // Scroll 1 slide at a time
+        infinite: true,           // Infinite loop
+        arrows: true,             // Show navigation arrows
+        dots: true,               // Show dots for navigation
+        centerMode: false,        // Don't center the current slide
+        variableWidth: false,     // Don't use variable width
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,  // Show 3 slides for small screens
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,  // Show 2 slides for very small screens
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,  // Show 1 slide for mobile screens
+              slidesToScroll: 1
+            }
           }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
+        ]
+      });
+    }, 0);
   }
+  
 }
