@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+declare var $: any; // This allows you to use jQuery in your component
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'myapp';
 
   // Trending Now Array with Images
@@ -42,8 +44,8 @@ export class AppComponent {
     {
       title: 'Watch everywhere',
       description: 'Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.',
-      mediaSrc: '/videos/watch-everywhere.mp4',
-      isVideo: true
+      mediaSrc: '/images/feature-3.png',  // Changed from MP4 to image
+      isVideo: false
     },
     {
       title: 'Create profiles for kids',
@@ -69,4 +71,39 @@ export class AppComponent {
     ['Help Center', 'Account', 'Jobs'],
     ['Press', 'Contact Us', 'Gift Cards']
   ];
+
+  // Slick Carousel initialization after view is initialized
+  ngAfterViewInit() {
+    // Initialize Slick Carousel for Trending Now
+    $('.trending-carousel').slick({
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      infinite: true,
+      arrows: true,
+      dots: true,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+  }
 }
