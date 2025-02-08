@@ -11,18 +11,18 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'myapp';
 
-  // Trending Now Array
+  // Trending Now Array with Images
   trendingNow = [
-    { name: 'Squid Game', rank: 1 },
-    { name: 'Lovers Anonymous', rank: 2 },
-    { name: 'Recep Ivedik 7', rank: 3 },
-    { name: 'The Life and Movies of Erşan Kuneri', rank: 4 },
-    { name: 'Back in Action', rank: 5 },
-    { name: 'The Walking Dead', rank: 6 },
-    { name: 'Asaf', rank: 7 },
-    { name: 'Prison Break', rank: 8 },
-    { name: 'Uncharted', rank: 9 },
-    { name: 'The Night Agent', rank: 10 }
+    { name: 'Squid Game', rank: 1, image: '/images/squid-game.webp' },
+    { name: 'Lovers Anonymous', rank: 2, image: '/images/anonymous-love.webp' },
+    { name: 'Recep Ivedik 7', rank: 3, image: '/images/recep-ivedik.webp' },
+    { name: 'The Life and Movies of Erşan Kuneri', rank: 4, image: '/images/ersan-kuneri.webp' },
+    { name: 'Back in Action', rank: 5, image: '/images/back-action.webp' },
+    { name: 'The Walking Dead', rank: 6, image: '/images/walking-dead.webp' },
+    { name: 'Asaf', rank: 7, image: '/images/asaf.webp' },
+    { name: 'Prison Break', rank: 8, image: '/images/prison-break.webp' },
+    { name: 'Uncharted', rank: 9, image: '/images/uncharted.webp' },
+    { name: 'The Night Agent', rank: 10, image: '/images/night-agent.webp' }
   ];
 
   // Features Section
