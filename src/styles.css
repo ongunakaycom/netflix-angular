@@ -22,7 +22,7 @@ body {
   .header {
     width: 100%;
     height: 100vh; /* Full viewport height */
-    background-image: url('../public/images/netflix-bg.jpg'); 
+    background-image: url('../public/images/header-image.png'); 
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
