@@ -1,7 +1,13 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import $ from 'jquery';
 
-declare var $: any; // This allows you to use jQuery in your component
+// Declare slick method globally for jQuery
+declare global {
+  interface JQuery {
+    slick(options?: any): any;
+  }
+}
 
 @Component({
   selector: 'app-root',
